@@ -1,0 +1,98 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: vxWZwYh8UCKu+LtkrgTT4w9Gxc4=
+Created-By: 1.0 (BurgerZ jBART Tool Signer)
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: iUW1524GYLlAVrHMzL4mZdZE3NE=
+
+Name: firmware-update/BTFM.bin
+SHA1-Digest: mr620jfv/AXKxBZ/mTanmHC4Y6U=
+
+Name: META-INF/com/miui/miui_update
+SHA1-Digest: gL1f8krC9ZimXFkg1W4VXA3VEwQ=
+
+Name: data/miui/mms/understand.zip
+SHA1-Digest: ql47aJhBw/iO2pTbcCEOw3vniAc=
+
+Name: system.patch.dat
+SHA1-Digest: WNVbfQukGl6RO+8kdKbNupdaybo=
+
+Name: data/miui/cust/cn/cust.prop
+SHA1-Digest: GbYZQSz1l6qhkPlgHR4zsnyyimk=
+
+Name: data/miui/cust/cn/ota_customized_applist
+SHA1-Digest: HYMKB7hOlJqbWvBf7Zprv76HI5k=
+
+Name: system.transfer.list
+SHA1-Digest: 4LK574jBGP+vvf/TkMs94otu22w=
+
+Name: data/miui/precust_theme/precust.zip
+SHA1-Digest: T5ZQLqJTSfYexdhsQ5hlmGmuBa0=
+
+Name: firmware-update/pmic.mbn
+SHA1-Digest: OUQvj9ut/zdHs7c25y5dAUmAEKc=
+
+Name: META-INF/com/android/metadata
+SHA1-Digest: 5J4hm90G67Zsp3V8/fEBX1K2Bc0=
+
+Name: data/miui/gallery/city.db
+SHA1-Digest: Girs7wCOswymNd/0J7RNDGPesw0=
+
+Name: file_contexts
+SHA1-Digest: QlgYPh2ppz4d9D4h7wxik/k2OjY=
+
+Name: data/miui/cust/cust/eu/cust.prop
+SHA1-Digest: CbU1hLY0hT2qSfpLZo2O2DEicrs=
+
+Name: firmware-update/NON-HLOS.bin
+SHA1-Digest: jAYyak2aFkZqkQ+YM89IAEebtW0=
+
+Name: data/miui/cust/cn/ota_recommended_applist
+SHA1-Digest: T7zNgrvOHQtPiNO66By0XfoHqq0=
+
+Name: firmware-update/bk2.img
+SHA1-Digest: EwM3LhDAdHskyJq5sJblaSr1Vuw=
+
+Name: META-INF/com/android/otacert
+SHA1-Digest: uobrdlqLqgZWPKa+qFIz7/hcRXY=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: 1ENrsZnTegkqoeqETJ/+RKs+b7c=
+
+Name: data/miui/cust/cust/eu/ota_customized_applist
+SHA1-Digest: Zs+k3qmOobb4TQyo7L4ipW8iM/Y=
+
+Name: firmware-update/sdi.mbn
+SHA1-Digest: 2Wtrc8cdF6v9Wq6IPtrmVrLeO1M=
+
+Name: firmware-update/hyp.mbn
+SHA1-Digest: dkCTlU715GVUbawCrWxR1TjvCJY=
+
+Name: boot.img
+SHA1-Digest: yCYWdk0PKgBAS2KfGG51cV33KQE=
+
+Name: system.new.dat
+SHA1-Digest: UH/jZyUbwCxKPEYwn3kj3//IgTY=
+
+Name: firmware-update/rpm.mbn
+SHA1-Digest: ucLDdMB14zXsMcVVzK1Lx9BZpl8=
+
+Name: system/media/theme/default/icons
+SHA1-Digest: iQ+kMSdhPQ8/hbsOX8iA7gh0pNk=
+
+Name: firmware-update/tz.mbn
+SHA1-Digest: hh/VrS9QmJuBtPT2SXk0Q/s3PDM=
+
+Name: firmware-update/sbl1.mbn
+SHA1-Digest: gYyH6qc2NDPGt4ZclJc4mKwAbLs=
+
+Name: data/miui/app/noncustomized/XiaomiAuthenticator/XiaomiAuthentica
+ tor.apk
+SHA1-Digest: DWN6JCHisSkZOBaSPMXC3XOgI7A=
+
+Name: firmware-update/logo.img
+SHA1-Digest: 7+cJDp2qGf1xfBgkP0NeUYyE/tk=
+
+Name: firmware-update/emmc_appsboot.mbn
+SHA1-Digest: QAtudVMaV6mNpmCaRYpErNXwNyw=
+

@@ -1,0 +1,16 @@
+show_progress(0.650000, 0);
+show_progress(0.100000, 0);
+show_progress(0.050000, 5);
+ui_print("Mount system...");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "max_batch_time=0,commit=1,data=ordered,barrier=1,errors=panic,nodelalloc");
+ui_print("Extract system.img...");
+package_extract_file("system.img", "/dev/block/bootdevice/by-name/system");
+ui_print("Extract boot.img...");
+package_extract_file("boot.img", "/dev/block/bootdevice/by-name/boot");
+show_progress(0.200000, 10);
+ui_print("Root the device...");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "max_batch_time=0,commit=1,data=ordered,barrier=1,errors=panic,nodelalloc");
+package_extract_dir("root", "/tmp/root");
+run_program("/sbin/busybox", "unzip", "/tmp/root/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/root");
+run_program("/sbin/busybox", "sh", "/tmp/root/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/root/supersu.zip");
+unmount("/system");
