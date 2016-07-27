@@ -17,6 +17,4 @@ How to use:
 
 Bug:
 
-1.Camera doesn't work
-
-2.NFC doesn't work
+1.NFC doesn't work
