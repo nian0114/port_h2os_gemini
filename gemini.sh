@@ -116,6 +116,7 @@ fi
 #sed -i "/\s*ro.com.google.clientidbase.*$/d" output/build.prop
 #sed -i "/\s*#.*$/d" output/build.prop
 #cat ../tools/build.prop.addition >> output/build.prop
+sed -i -e "s/ro\.build\.product=.*/$VERSION_TMP/g" output/build.prop
 
 echo "Build system.new.dat ..."
 ./../tools/make_ext4fs -T 0 -S ../tools/file_contexts -l $FSTABLE -a system system_new.img output/ &> /dev/null
