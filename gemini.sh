@@ -78,6 +78,16 @@ rm -rf output/vendor/lib64/hw/fingerprint.qcom.so_not_use
 cp -rf ../tools/gemini/system/* output/
 rm -rf output/app/DiracManager output/app/DiracAudioControlService output/vendor/etc/diracvdd.bin output/vendor/lib/rfsa/adsp/libdirac-appi.so
 
+echo "Hack System Assest"
+mv output/framework/arm64/boot.oat .
+mv output/framework/oat/arm64/services.odex .
+java -jar ../tools/baksmali.jar -a 23 -x -c boot.oat -d . -b -s services.odex -o services
+cp ../tools/rmline.sh .
+./../tools/git.apply ../tools/signature.patch
+java -jar ../tools/smali.jar -a 23 -j 1 -o classes.dex services
+jar -cvf services.jar classes.dex
+mv services.jar output/framework/
+
 if [ -d ../tools/third-app ];then
 	echo "Add Third App ..."
 	cp -rf ../tools/third-app/* output/reserve
