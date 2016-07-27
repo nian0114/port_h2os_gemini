@@ -74,9 +74,9 @@ rm -rf output/vendor/etc/RIDL/GoldenLogmask.dmc output/vendor/etc/RIDL/OTA-Logs.
 rm -rf output/vendor/lib/rfsa/adsp/libAMF_hexagon_skel.so output/vendor/lib/rfsa/adsp/libmare_hexagon_skel.so
 rm -rf output/vendor/lib/libsensor_thresh.so output/vendor/lib64/libsensor_thresh.so
 rm -rf output/vendor/lib64/hw/fingerprint.qcom.so_not_use
-rm -rf output/app/DiracManager output/app/DiracAudioControlService output/vendor/etc/diracvdd.bin output/vendor/lib/rfsa/adsp/libdirac-appi.so
 
 cp -rf ../tools/gemini/system/* output/
+rm -rf output/app/DiracManager output/app/DiracAudioControlService output/vendor/etc/diracvdd.bin output/vendor/lib/rfsa/adsp/libdirac-appi.so
 
 if [ -d ../tools/third-app ];then
 	echo "Add Third App ..."
