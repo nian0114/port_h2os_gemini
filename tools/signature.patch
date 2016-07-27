@@ -4,17 +4,18 @@ Date: Wed, 27 Jul 2016 14:37:44 +0800
 Subject: [PATCH] bye,signature check
 
 ---
- .../android/server/pm/PackageManagerService.smali  | 120 +--------------------
- 1 file changed, 2 insertions(+), 118 deletions(-)
+ .../android/server/pm/PackageManagerService.smali  | 122 +--------------------
+ 1 file changed, 3 insertions(+), 119 deletions(-)
 
 --- a/services/com/android/server/pm/PackageManagerService.smali
 +++ b/services/com/android/server/pm/PackageManagerService.smali
 @@ -7817,125 +7817,9 @@
  .method static compareSignatures([Landroid/content/pm/Signature;[Landroid/content/pm/Signature;)I
-     .registers 13
+-    .registers 13
++    .registers 9
  
 -    const/4 v6, 0x1
-+    const/4 v6, 0x0
++    const/4 v0, 0x0
  
 -    const/4 v8, -0x3
 -

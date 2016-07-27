@@ -59,7 +59,7 @@ rm -rf output/recovery-from-boot.p
 rm -rf output/bin/install-recovery.sh
 
 echo "Start Xiaomi Port"
-rm -rf output/app/LatinIME  output/appLiveWallpapers  output/appNoiseField  output/appOEMLogKit  output/app/OpenWnn  output/app/NfcNci 
+rm -rf output/app/LatinIME  output/appLiveWallpapers  output/appNoiseField  output/appOEMLogKit  output/app/OpenWnn
 rm -rf output/bin/qfipsverify  output/bin/qfp-daemon  output/bin/secure_camera_sample_client
 rm -rf output/etc/acdbdata/Fluid  output/etc/acdbdata/Liquid  output/etc/acdbdata/MTP  output/etc/acdbdata/QRD
 rm -rf output/etc/camera/imx179_chromatix.xml output/etc/cne/wqeclient output/etc/stargate
@@ -78,15 +78,16 @@ rm -rf output/vendor/lib64/hw/fingerprint.qcom.so_not_use
 cp -rf ../tools/gemini/system/* output/
 rm -rf output/app/DiracManager output/app/DiracAudioControlService output/vendor/etc/diracvdd.bin output/vendor/lib/rfsa/adsp/libdirac-appi.so
 
-echo "Hack System Assest"
-mv output/framework/arm64/boot.oat .
-mv output/framework/oat/arm64/services.odex .
-java -jar ../tools/baksmali.jar -a 23 -x -c boot.oat -d . -b -s services.odex -o services
-cp ../tools/rmline.sh .
-./../tools/git.apply ../tools/signature.patch
-java -jar ../tools/smali.jar -a 23 -j 1 -o classes.dex services
-jar -cvf services.jar classes.dex
-mv services.jar output/framework/
+#echo "Hack System Assest"
+#cp output/framework/arm64/boot.oat .
+#cp output/framework/oat/arm64/services.odex .
+#rm -rf output/framework/oat/arm64/services.odex
+#java -jar ../tools/baksmali.jar -a 23 -x -c boot.oat -d . -b -s services.odex -o services
+#cp ../tools/rmline.sh .
+#./../tools/git.apply ../tools/signature.patch
+#java -jar ../tools/smali.jar -a 23 -j 1 -o classes.dex services
+#jar -cvf services.jar classes.dex
+#mv services.jar output/framework/
 
 if [ -d ../tools/third-app ];then
 	echo "Add Third App ..."
