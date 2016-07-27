@@ -59,7 +59,7 @@ rm -rf output/recovery-from-boot.p
 rm -rf output/bin/install-recovery.sh
 
 echo "Start Xiaomi Port"
-rm -rf output/app/LatinIME  output/appLiveWallpapers  output/appNoiseField  output/appOEMLogKit  output/appOpenWnn
+rm -rf output/app/LatinIME  output/appLiveWallpapers  output/appNoiseField  output/appOEMLogKit  output/app/OpenWnn  output/app/NfcNci 
 rm -rf output/bin/qfipsverify  output/bin/qfp-daemon  output/bin/secure_camera_sample_client
 rm -rf output/etc/acdbdata/Fluid  output/etc/acdbdata/Liquid  output/etc/acdbdata/MTP  output/etc/acdbdata/QRD
 rm -rf output/etc/camera/imx179_chromatix.xml output/etc/cne/wqeclient output/etc/stargate
