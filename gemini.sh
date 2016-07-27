@@ -63,7 +63,7 @@ rm -rf output/app/LatinIME  output/appLiveWallpapers  output/appNoiseField  outp
 rm -rf output/bin/qfipsverify  output/bin/qfp-daemon  output/bin/secure_camera_sample_client
 rm -rf output/etc/acdbdata/Fluid  output/etc/acdbdata/Liquid  output/etc/acdbdata/MTP  output/etc/acdbdata/QRD
 rm -rf output/etc/camera/imx179_chromatix.xml output/etc/cne/wqeclient output/etc/stargate
-rm -rf output/etc/firmware/mbn_ota output/etc/firmware/tp output/etc/firmware/alipay*
+rm -rf output/etc/firmware/mbn_ota output/etc/firmware/tp
 rm -rf output/etc/qdcm_calib_data_samsung* policy_nx6p
 rm -rf output/lib/libFNVfbEngineHAL.so output/lib/lib_fpc_tac_shared.so output/lib/hw/fingerprint.msm8996.so output/lib/hw/nfc_nci.pn54x.default.so output/lib/hw/sensors.hub.so output/lib/hw/modules/msm-buspm-dev.ko
 rm -rf output/lib64/lib_fpc_tac_shared.so output/lib64/hw/fingerprint.msm8996.so output/lib64/hw/sensors.hub.so
