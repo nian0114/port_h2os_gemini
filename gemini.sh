@@ -51,6 +51,9 @@ else
   cp -rf ../stockrom/system/* output/
 fi
 
+VERSION_TMP=`cat output/build.prop |grep "ro.rom.version"`
+VERSION=${VERSION_TMP:21}
+
 echo "Disable Recovery Auto Install ..."
 rm -rf output/recovery-from-boot.p
 rm -rf output/bin/install-recovery.sh
@@ -127,7 +130,7 @@ cp -rf workspace/system_new.img final/system.img
 cp -rf tools/root final/
 
 cd final
-zip -q -r "../$DEVICE-h2os-6.0.zip" 'boot.img' 'META-INF' 'system.img' 'root'
+zip -q -r "../$DEVICE-h2os-$VERSION-6.0.zip" 'boot.img' 'META-INF' 'system.img' 'root'
 cd ..
 
 sudo umount /dev/loop0
