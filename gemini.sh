@@ -124,7 +124,6 @@ cp -rf ../output/framework/services.jar services.jar
 ./apktool d services.jar &> /dev/null
 ./git.apply  ../../tools/patches/services_assest.patch
 ./git.apply  ../../tools/patches/fastcharge.patch
-./git.apply  ../../tools/patches/OPIQSettings.patch
 ./apktool b services.jar.out &> /dev/null
 mv services.jar.out/dist/services.jar ../output/framework/
 
@@ -132,6 +131,7 @@ mkdir -p Settings_tmp
 mv ../output/priv-app/Settings/Settings.apk Settings.apk
 ./apktool d Settings.apk &> /dev/null
 sed -i "/\s*ic_settings_zenmode.*$/d" `grep ic_settings_zenmode -rl --include="*.xml" Settings/res/xml`
+./git.apply  ../../tools/patches/OPIQSettings.patch
 ./apktool b Settings &> /dev/null
 mv Settings.apk Settings_tmp/Settings.zip
 cd Settings_tmp
