@@ -54,6 +54,39 @@ fi
 VERSION_TMP=`cat output/build.prop |grep "ro.rom.version"`
 VERSION=${VERSION_TMP:21}
 
+if [ -d output/framework/$CPU ];then
+	echo "Start Odex System ..."
+	cp -rf ../tools/odex/* $PWD
+	cp -rf output/* superr_miui/system/
+	mv superr_miui/system/vendor/app/colorservice superr_miui/system/app/
+	mv superr_miui/system/vendor/app/ims superr_miui/system/app/
+	mv superr_miui/system/vendor/app/imssettings superr_miui/system/app/
+
+	./superr
+
+	cp -rf output/framework/arm superr_miui/system/framework/
+	cp -rf output/framework/arm64 superr_miui/system/framework/
+
+	rm -rf output/vendor/app/colorservice
+	rm -rf output/vendor/app/ims
+	rm -rf output/vendor/app/imssettings
+
+	rm -rf output/framework
+	rm -rf output/priv-app
+	rm -rf output/app
+
+	mv superr_miui/system/app output/
+	mv superr_miui/system/framework output/
+	mv superr_miui/system/priv-app output/
+
+	mv output/app/colorservice output/vendor/app/
+	mv output/app/ims output/vendor/app/
+	mv output/app/imssettings output/vendor/app/
+
+	rm -rf superr_miui
+	rm -rf tools
+	rm -rf superr
+fi
 echo "Disable Recovery Auto Install ..."
 rm -rf output/recovery-from-boot.p
 rm -rf output/bin/install-recovery.sh
