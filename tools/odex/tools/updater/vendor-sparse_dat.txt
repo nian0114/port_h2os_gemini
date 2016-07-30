@@ -1,0 +1,2 @@
+ui_print("Extracting vendor..."); ui_print(" ");
+block_image_update("#PARTVENDOR", package_extract_file("vendor.transfer.list"), "vendor.new.dat", "vendor.patch.dat");

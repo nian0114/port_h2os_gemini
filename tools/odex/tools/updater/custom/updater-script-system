@@ -1,0 +1,31 @@
+#ASSERT
+show_progress(1.000000, 0);
+unmount("/system");
+ui_print(" ");
+ui_print(" ");
+ui_print("Custom #SIGNATURE Installer");
+ui_print("Built with SuperR's Kitchen");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print("Mounting system...");
+ui_print(" ");
+mount("ext4", "EMMC", "#BYNAME/system", "/system");
+set_progress(0.200000);
+ui_print("Extracting system...");
+ui_print(" ");
+package_extract_dir("system", "/system");
+set_progress(0.700000);
+#SYM
+ui_print("Setting Permissions...");
+ui_print(" ");
+set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+set_perm_recursive(0, 0, 0755, 0644, "/system/framework");
+set_perm_recursive(0, 0, 0755, 0644, "/system/lib");
+set_perm_recursive(0, 0, 0755, 0644, "/system/media");
+set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
+set_progress(0.900000);
+unmount("/system");
+set_progress(1.000000);
+ui_print("Custom #SIGNATURE Installed");

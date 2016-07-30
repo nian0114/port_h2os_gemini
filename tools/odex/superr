@@ -2975,7 +2975,7 @@ deodex_m() {
 	if [[ ! $arch2 = "" ]]; then
 		rm -rf $framedir/$arch2
 	fi
-	exit
+	exitk
 
 }
 deodex_m2() {

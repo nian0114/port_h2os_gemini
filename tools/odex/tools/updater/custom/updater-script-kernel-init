@@ -1,0 +1,25 @@
+#ASSERT
+show_progress(1.000000, 0);
+unmount("/system");
+ui_print(" ");
+ui_print(" ");
+ui_print("#SIGNATURE Installer");
+ui_print("Built with SuperR's Kitchen");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print("Mounting system...");
+ui_print(" ");
+mount("ext4", "EMMC", "#BYNAME/system", "/system");
+set_progress(0.400000);
+ui_print("Extracting system...");
+ui_print(" ");
+package_extract_dir("system", "/system");
+ui_print("Extracting boot image...");
+ui_print(" ");
+package_extract_file("boot.img", "#BYNAME/boot");
+set_progress(0.900000);
+unmount("/system");
+set_progress(1.000000);
+ui_print("#SIGNATURE Installed");

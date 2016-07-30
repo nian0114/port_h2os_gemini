@@ -1,0 +1,15 @@
+#ASSERT
+show_progress(1.000000, 0);
+ui_print(" ");
+ui_print(" ");
+ui_print("#SIGNATURE Installer");
+ui_print("Built with SuperR's Kitchen");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print("Extracting boot image...");
+ui_print(" ");
+package_extract_file("boot.img", "#BYNAME/boot");
+set_progress(1.000000);
+ui_print("#SIGNATURE Installed");

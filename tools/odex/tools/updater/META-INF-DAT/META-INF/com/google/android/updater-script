@@ -1,0 +1,34 @@
+#ASSERT
+unmount("/system");
+ui_print(" ");
+ui_print(" ");
+ui_print("#SIGNATURE Installer");
+ui_print("Built with SuperR's Kitchen");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ifelse(is_mounted("/system"), unmount("/system"));
+package_extract_dir("install", "/tmp/install");
+set_metadata_recursive("/tmp/install", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644);
+set_metadata_recursive("/tmp/install/bin", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755);
+mount("ext4", "EMMC", "#BYNAME/system", "/system", "");
+run_program("/tmp/install/bin/backuptool.sh", "backup");
+unmount("/system");
+show_progress(0.750000, 0);
+ui_print("Extracting system...");
+ui_print(" ");
+block_image_update("#BYNAME/system", package_extract_file("system.transfer.list"), "system.new.dat", "system.patch.dat");
+show_progress(0.020000, 10);
+mount("ext4", "EMMC", "#BYNAME/system", "/system", "");
+run_program("/tmp/install/bin/backuptool.sh", "restore");
+unmount("/system");
+ui_print("Extracting boot image...");
+ui_print(" ");
+show_progress(0.050000, 5);
+package_extract_file("boot.img", "#BYNAME/boot");
+#ROOT
+ui_print(" ");
+#BUSYBOX
+show_progress(0.200000, 10);
+ui_print("#SIGNATURE Installed");
