@@ -13,7 +13,7 @@ else
 	rm -rf $DEVICE-h2os-6.0.zip final/*
 fi
 
-mkdir -p workspace/output
+mkdir -p workspace/output workspace/app
 
 if [ ! -f "stockrom/system.new.dat" ]; then
 
@@ -87,6 +87,7 @@ if [ -d output/framework/$CPU ];then
 	rm -rf tools
 	rm -rf superr
 fi
+
 echo "Disable Recovery Auto Install ..."
 rm -rf output/recovery-from-boot.p
 rm -rf output/bin/install-recovery.sh
@@ -111,16 +112,22 @@ rm -rf output/vendor/lib64/hw/fingerprint.qcom.so_not_use
 cp -rf ../tools/gemini/system/* output/
 rm -rf output/app/DiracManager output/app/DiracAudioControlService output/vendor/etc/diracvdd.bin output/vendor/lib/rfsa/adsp/libdirac-appi.so
 
-#echo "Hack System Assest"
-#cp output/framework/arm64/boot.oat .
-#cp output/framework/oat/arm64/services.odex .
-#rm -rf output/framework/oat/arm64/services.odex
-#java -jar ../tools/baksmali.jar -a 23 -x -c boot.oat -d . -b -s services.odex -o services
-#cp ../tools/rmline.sh .
-#./../tools/git.apply ../tools/signature.patch
-#java -jar ../tools/smali.jar -a 23 -j 1 -o classes.dex services
-#jar -cvf services.jar classes.dex
-#mv services.jar output/framework/
+echo "Hack System Assest"
+cd app
+cp -rf ../../tools/apktool* $PWD
+cp -rf ../../tools/git.apply $PWD
+cp -rf ../../tools/rmline.sh $PWD
+
+mkdir -p services_tmp
+cp -rf ../output/framework/services.jar services.jar
+./apktool d services.jar &> /dev/null
+./git.apply  ../../tools/patches/services_assest.patch
+./apktool b services.jar.out &> /dev/null
+mv services.jar.out/dist/services.jar ../output/framework/
+
+cd ..
+rm -rf app
+
 
 if [ -d ../tools/third-app ];then
 	echo "Add Third App ..."

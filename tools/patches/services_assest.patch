@@ -1,19 +1,24 @@
-From 080509e0a60b6df23adf845f41698c0bae140be9 Mon Sep 17 00:00:00 2001
+From a4d042d415c3cf009d6010a7ce5aa77cc46a1971 Mon Sep 17 00:00:00 2001
 From: nian0114 <268078545@qq.com>
-Date: Wed, 27 Jul 2016 14:37:44 +0800
-Subject: [PATCH] bye,signature check
+Date: Fri, 29 Jul 2016 08:44:54 +0800
+Subject: [PATCH] bye,assest
 
 ---
- .../android/server/pm/PackageManagerService.smali  | 122 +--------------------
- 1 file changed, 3 insertions(+), 119 deletions(-)
+ .../android/server/pm/PackageManagerService.smali  | 155 +--------------------
+ 1 file changed, 3 insertions(+), 152 deletions(-)
 
---- a/services/com/android/server/pm/PackageManagerService.smali
-+++ b/services/com/android/server/pm/PackageManagerService.smali
-@@ -7817,125 +7817,9 @@
- .method static compareSignatures([Landroid/content/pm/Signature;[Landroid/content/pm/Signature;)I
--    .registers 13
-+    .registers 9
+--- a/services.jar.out/smali/com/android/server/pm/PackageManagerService.smali
++++ b/services.jar.out/smali/com/android/server/pm/PackageManagerService.smali
+@@ -7667,139 +7667,11 @@
+ .end method
  
+ .method static compareSignatures([Landroid/content/pm/Signature;[Landroid/content/pm/Signature;)I
+-    .locals 11
+-    .param p0, "s1"    # [Landroid/content/pm/Signature;
+-    .param p1, "s2"    # [Landroid/content/pm/Signature;
++    .locals 7
+ 
+-    .prologue
 -    const/4 v6, 0x1
 +    const/4 v0, 0x0
  
@@ -80,28 +85,35 @@ Subject: [PATCH] bye,signature check
 -
 -    invoke-direct {v3}, Landroid/util/ArraySet;-><init>()V
 -
+-    .local v3, "set1":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/content/pm/Signature;>;"
 -    move-object v0, p0
 -
+-    .local v0, "arr$":[Landroid/content/pm/Signature;
 -    array-length v2, v0
 -
+-    .local v2, "len$":I
 -    const/4 v1, 0x0
 -
+-    .local v1, "i$":I
 -    :goto_1
 -    if-ge v1, v2, :cond_6
 -
 -    aget-object v5, v0, v1
 -
+-    .local v5, "sig":Landroid/content/pm/Signature;
 -    invoke-virtual {v3, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 -
 -    add-int/lit8 v1, v1, 0x1
 -
 -    goto :goto_1
 -
+-    .end local v5    # "sig":Landroid/content/pm/Signature;
 -    :cond_6
 -    new-instance v4, Landroid/util/ArraySet;
 -
 -    invoke-direct {v4}, Landroid/util/ArraySet;-><init>()V
 -
+-    .local v4, "set2":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/content/pm/Signature;>;"
 -    move-object v0, p1
 -
 -    array-length v2, v0
@@ -113,12 +125,14 @@ Subject: [PATCH] bye,signature check
 -
 -    aget-object v5, v0, v1
 -
+-    .restart local v5    # "sig":Landroid/content/pm/Signature;
 -    invoke-virtual {v4, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 -
 -    add-int/lit8 v1, v1, 0x1
 -
 -    goto :goto_2
 -
+-    .end local v5    # "sig":Landroid/content/pm/Signature;
 -    :cond_7
 -    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
 -
