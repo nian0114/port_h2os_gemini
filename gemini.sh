@@ -3,6 +3,8 @@ DEVICE=gemini;
 CPU=arm64;
 FSTABLE=3221225472;
 
+USER=`whoami`
+
 echo "Start to Build H2OS ($DEVICE)"
 
 if [ -d "workspace" ]; then
@@ -45,7 +47,7 @@ if [ ${IMG} = 1 ]; then
   echo "Extract System.img ..."
   ./../tools/sdat2img.py system.transfer.list system.new.dat system.img &> /dev/null
   sudo mount -t ext4 -o loop system.img output/
-  sudo chown -R nian:nian output
+  sudo chown -R $USER:$USER output
 else
   echo "Copy System to Output ..."
   cp -rf ../stockrom/system/* output/
