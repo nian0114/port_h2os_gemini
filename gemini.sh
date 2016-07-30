@@ -118,16 +118,28 @@ cp -rf ../../tools/apktool* $PWD
 cp -rf ../../tools/git.apply $PWD
 cp -rf ../../tools/rmline.sh $PWD
 
-mkdir -p services_tmp
 cp -rf ../output/framework/services.jar services.jar
 ./apktool d services.jar &> /dev/null
 ./git.apply  ../../tools/patches/services_assest.patch
 ./apktool b services.jar.out &> /dev/null
 mv services.jar.out/dist/services.jar ../output/framework/
 
+mkdir -p Settings_tmp
+mv ../output/priv-app/Settings/Settings.apk Settings.apk
+./apktool d Settings.apk &> /dev/null
+sed -i "/\s*ic_settings_zenmode.*$/d" `grep ic_settings_zenmode -rl --include="*.xml" Settings/res/xml`
+./apktool b Settings &> /dev/null
+mv Settings.apk Settings_tmp/Settings.zip
+cd Settings_tmp
+unzip Settings.zip &> /dev/null
+rm -rf res/xml
+cp -rf ../Settings/build/apk/classes.dex classes.dex
+cp -rf ../Settings/build/apk/res/xml res/xml
+zip -q -r "../../output/priv-app/Settings/Settings.apk" 'META-INF' 'resources.arsc' 'res' 'AndroidManifest.xml' 'classes.dex' &> /dev/null
+cd ..
+
 cd ..
 rm -rf app
-
 
 if [ -d ../tools/third-app ];then
 	echo "Add Third App ..."
