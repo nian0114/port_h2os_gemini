@@ -121,6 +121,7 @@ cp -rf ../../tools/rmline.sh $PWD
 cp -rf ../output/framework/services.jar services.jar
 ./apktool d services.jar &> /dev/null
 ./git.apply  ../../tools/patches/services_assest.patch
+./git.apply  ../../tools/patches/fastcharge.patch
 ./apktool b services.jar.out &> /dev/null
 mv services.jar.out/dist/services.jar ../output/framework/
 

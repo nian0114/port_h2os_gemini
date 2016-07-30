@@ -1,0 +1,120 @@
+From cc0611c7ad6a9a12bbfcf62ca1d208be9f859bb3 Mon Sep 17 00:00:00 2001
+From: nian0114 <268078545@qq.com>
+Date: Sat, 30 Jul 2016 16:29:24 +0800
+Subject: [PATCH] we have no dash charge
+
+---
+ .../smali/com/android/server/BatteryService.smali  | 112 +--------------------
+ 1 file changed, 3 insertions(+), 109 deletions(-)
+
+--- a/services.jar.out/smali/com/android/server/BatteryService.smali
++++ b/services.jar.out/smali/com/android/server/BatteryService.smali
+@@ -1357,102 +1357,12 @@
+ .end method
+ 
+ .method private isFastCharge()Z
+-    .locals 8
++    .locals 1
+ 
+     .prologue
+-    new-instance v3, Ljava/io/File;
++    const/4 v0, 0x0
+ 
+-    const-string v6, "/sys/class/power_supply/battery/fastchg_status"
+-
+-    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+-
+-    .local v3, "mChargerTypeFile":Ljava/io/File;
+-    :try_start_0
+-    new-instance v2, Ljava/io/FileReader;
+-
+-    invoke-direct {v2, v3}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+-
+-    .local v2, "fileReader":Ljava/io/FileReader;
+-    new-instance v0, Ljava/io/BufferedReader;
+-
+-    invoke-direct {v0, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+-
+-    .local v0, "br":Ljava/io/BufferedReader;
+-    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+-
+-    move-result-object v5
+-
+-    .local v5, "type":Ljava/lang/String;
+-    const-string v6, "1"
+-
+-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+-
+-    move-result v6
+-
+-    if-eqz v6, :cond_0
+-
+-    const/4 v4, 0x1
+-
+-    .local v4, "ret":Z
+-    :goto_0
+-    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
+-
+-    invoke-virtual {v2}, Ljava/io/FileReader;->close()V
+-    :try_end_0
+-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+-
+-    .end local v0    # "br":Ljava/io/BufferedReader;
+-    .end local v2    # "fileReader":Ljava/io/FileReader;
+-    .end local v5    # "type":Ljava/lang/String;
+-    :goto_1
+-    return v4
+-
+-    .end local v4    # "ret":Z
+-    .restart local v0    # "br":Ljava/io/BufferedReader;
+-    .restart local v2    # "fileReader":Ljava/io/FileReader;
+-    .restart local v5    # "type":Ljava/lang/String;
+-    :cond_0
+-    const/4 v4, 0x0
+-
+-    .restart local v4    # "ret":Z
+-    goto :goto_0
+-
+-    .end local v0    # "br":Ljava/io/BufferedReader;
+-    .end local v2    # "fileReader":Ljava/io/FileReader;
+-    .end local v4    # "ret":Z
+-    .end local v5    # "type":Ljava/lang/String;
+-    :catch_0
+-    move-exception v1
+-
+-    .local v1, "e":Ljava/io/FileNotFoundException;
+-    const/4 v4, 0x0
+-
+-    .restart local v4    # "ret":Z
+-    sget-object v6, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+-
+-    const-string v7, "Failure in reading charger type"
+-
+-    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+-
+-    goto :goto_1
+-
+-    .end local v1    # "e":Ljava/io/FileNotFoundException;
+-    .end local v4    # "ret":Z
+-    :catch_1
+-    move-exception v1
+-
+-    .local v1, "e":Ljava/io/IOException;
+-    const/4 v4, 0x0
+-
+-    .restart local v4    # "ret":Z
+-    sget-object v6, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+-
+-    const-string v7, "Failure in reading charger type"
+-
+-    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+-
+-    goto :goto_1
++    return v0
+ .end method
+ 
+ .method private isPoweredLocked(I)Z
+-- 
+1.9.1
+
