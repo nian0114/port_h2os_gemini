@@ -132,6 +132,7 @@ mv ../output/priv-app/Settings/Settings.apk Settings.apk
 ./apktool d Settings.apk &> /dev/null
 sed -i "/\s*ic_settings_zenmode.*$/d" `grep ic_settings_zenmode -rl --include="*.xml" Settings/res/xml`
 ./git.apply  ../../tools/patches/OPIQSettings.patch
+./git.apply  ../../tools/patches/updater.patch
 ./apktool b Settings &> /dev/null
 mv Settings.apk Settings_tmp/Settings.zip
 cd Settings_tmp
